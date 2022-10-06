@@ -33,7 +33,7 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
-                    <a href="javascript:;">
+                    <a href="javascript:;" class="back">
                         <i class="iconfont icon-tuichu"></i>
                         退出
                     </a>
@@ -64,9 +64,9 @@
                     <li class="layui-nav-item">
                         <a href="javascript:;"><i class="iconfont icon-user"></i>个人中心</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>基本信息</a></dd>
+                            <dd><a href="/home/user_info.html" target="fm"><i class="layui-icon layui-icon-app"></i>基本信息</a></dd>
                             <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>更换头像</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>重置密码</a></dd>
+                            <dd><a href="/home/user_pwd.html" target="fm"><i class="layui-icon layui-icon-app"></i>重置密码</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -76,6 +76,8 @@
         <div class="layui-body">
             <!-- 内容主体区域 -->
             <iframe name="fm" src="/home/dashboard.html" frameborder="0"></iframe>
+            <iframe name="fm" src="/home/user_info.html" frameborder="0"></iframe>
+            <iframe name="fm" src="/home/user_pwd.html" frameborder="0"></iframe>
         </div>
 
         <div class="layui-footer">
