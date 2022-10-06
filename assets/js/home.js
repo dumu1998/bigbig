@@ -1,5 +1,6 @@
 $(function () {
     getUserInfo()
+    let layer = layui.layer
     // 点击退出事件  
     // 弹出确认弹窗确认后，清除本地存储里面的token值再进行跳转到登录页面
     $('.back').on('click', function () {
@@ -9,7 +10,7 @@ $(function () {
         }, function (index) {
             localStorage.removeItem('token')
             location.href = '../../login.html'
-            layer.close(home)
+            layer.close(index)
         })
     })
 })
@@ -30,7 +31,7 @@ function getUserInfo() {
 
 function renderAvatar(res) {
     const uname = res.data.nickname || res.data.username
-    $('#welcome').html(`欢迎  ${res.data.username}`)
+    $('#welcome').html(`欢迎  ${uname}`)
     if (res.data.user_pic !== null) {
         $('.layui-nav-img').attr('src', res.data.user_pic).show()
         $('.text-avatar').hide()

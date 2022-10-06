@@ -21,15 +21,15 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">原密码:</label>
                     <div class="layui-input-block">
-                        <input type="password" name="password" placeholder="请输入密码"
-                            autocomplete="off" class="layui-input" readonly>
+                        <input type="password" name="old_pwd" placeholder="请输入密码"
+                            autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <!-- 用户昵称 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">新密码:</label>
                     <div class="layui-input-block">
-                        <input type="password" name="oldpassword" required lay-verify="required|nickname" placeholder="请输入新密码"
+                        <input type="password" name="new_pwd" required lay-verify="required|pass|samePwd" placeholder="请输入新密码"
                             autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">确认密码:</label>
                     <div class="layui-input-block">
-                        <input type="password" name="repassword" required lay-verify="required" placeholder="确认密码"
+                        <input type="password" name="re_pwd" required lay-verify="required|rePwd" placeholder="确认密码"
                             autocomplete="off" class="layui-input">
                     </div>
                 </div>

@@ -36,9 +36,8 @@ $(function () {
             data:form.val('userForm'),
             success(res){
                 if(res.code !== 0) return layer.msg('更新失败')
-                window.parent.getUserInfo()
                 layer.msg('更新成功')
-                
+                window.parent.getUserInfo()
             }
         })
     })
