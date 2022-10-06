@@ -15,5 +15,5 @@ $.ajaxPrefilter(function (options) {
   options.url = 'http://big-event-vue-api-t.itheima.net' + options.url
   options.contentType = 'application/json'
 
-  options.data = form2Josn(options.data)
+  options.data = options.data && form2Josn(options.data)
 })
