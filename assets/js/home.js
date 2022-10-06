@@ -25,7 +25,7 @@ function getUserInfo() {
         success(res) {
             if (res.code !== 0) return layer.msg(res.message)
             renderAvatar(res)
-        }
+        }                                                                                                                           
     })
 }
 

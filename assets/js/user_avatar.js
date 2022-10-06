@@ -27,4 +27,26 @@ $(function () {
             .attr('src', imgURL) // 重新设置图片路径
             .cropper(options) // 重新初始化裁剪区域
     })
+
+    $('#btnUpload').on('click', function () {
+        let dataURL = $image
+            .cropper('getCroppedCanvas', {
+                // 创建一个 Canvas 画布
+                width: 100,
+                height: 100
+            })
+            .toDataURL('image/png')
+        $.ajax({
+            method: 'PATCH',
+            url: '/my/update/avatar',
+            data: {
+                avatar: dataURL
+            },
+            success(res) {
+                if (res.code !== 0) return layer.msg('更换失败')
+                layer.msg('更换成功')
+                window.parent.getUserInfo()
+            }
+        })
+    })
 })
