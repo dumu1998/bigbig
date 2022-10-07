@@ -18,7 +18,6 @@ $(function () {
     })
 
     $('#file').on('change', function (e) {
-        console.log(e)
         let filelist = e.target.files
         if (filelist.length === 0) return layer.msg('请选择图片')
         let imgURL = URL.createObjectURL(filelist[0])
