@@ -9,9 +9,9 @@ $.ajaxPrefilter(function (options) {
   options.contentType = 'application/json'
 
   // 将获取的表单数据转换为josn字符串
-  const form2Josn = (soure) => {
+  const form2Josn = (source) => {
     let target = {}
-    soure.split('&').forEach(el => {
+    source.split('&').forEach(el => {
       let kv = el.split('=')
       target[kv[0]] = decodeURIComponent(kv[1])
     })
@@ -26,15 +26,15 @@ $.ajaxPrefilter(function (options) {
     }
   }
 
-  options.complete = function (res) {
-    // console.log('执行了 complete 回调：')
-    // console.log(res)
-    // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
-    if (res.responseJSON.code === 1 && res.responseJSON.message === '身份认证失败！') {
-      // 1. 强制清空 token
-      localStorage.removeItem('token')
-      // 2. 强制跳转到登录页面
-      location.href = '../../login.html'
+   // 统一添加错误回调  或 complete 回调
+   options.error = function (err) {
+    if (
+      err.responseJSON?.code === 1 &&
+      err.responseJSON?.message === '身份认证失败！'
+    ) {
+      // 进次处的话，可以认为请求有误了
+      localStorage.clear()
+      location.href = '/login.html'
     }
   }
 })
